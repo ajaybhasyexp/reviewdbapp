@@ -1,0 +1,24 @@
+<div class="nav container">
+    <div class="nav navbar-header">
+        <a class="nav navbar-brand" href="#">
+            <img src="assets/images/logo.png">
+        </a>
+    </div>
+    <div id="navbar" class=" nav navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li *ngIf="auth.isLoggednIn()" class="dropdown">
+                <a href="#" class="dropdown-toggle">Welcome {{ auth.getLoggedInUser() }}</a>
+            </li>
+            <li *ngIf="!auth.isLoggednIn()" class="dropdown">
+                <a href="#" class="dropdown-toggle" routerLink="login">Login</a>
+            </li>
+            <li *ngIf="!auth.isLoggednIn()" class="dropdown">
+                <a href="#" class="dropdown-toggle" routerLink="signup">Signup</a>
+            </li>
+            <li *ngIf="auth.isLoggednIn()" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" (click)="auth.logout()">Logout</a>
+            </li>
+        </ul>
+        <button class="btn btn-navbar" type="submit" routerLink="/write-review">Write A Review</button>
+    </div>
+</div>
